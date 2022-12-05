@@ -1,0 +1,28 @@
+const mongoose = require('mongoose')
+const express = require('express')
+require('express-async-errors')
+const cors = require('cors')
+const logger = require('./utils/logger')
+const config = require('./utils/config')
+const blogRouter = require('./controller/blogs')
+const userRouter = require('./controller/users')
+const loginRouter = require('./controller/login')
+const middleware = require('./utils/middleware')
+const app = express()
+const url=config.MONGODB_URI
+logger.info(`Connecting to Mongo DB with ${url}....`)
+mongoose.connect(url)
+.then(()=>logger.info('Connected To MongoDB'))
+.catch((error)=>logger.error(`Couldn't connect due to ${error.message}`))
+app.use(express.json())
+app.use(cors())
+app.use(middleware.tokenExtractor)
+app.use(middleware.userExtractor)
+app.use('',blogRouter)
+app.use('/api/user',userRouter)
+app.use('/api/login',loginRouter)
+if(process.env.NODE_ENV === 'test'){
+    const testingRouter = require('./controller/testing')
+    app.use('/api/testing',testingRouter)
+}
+module.exports = app

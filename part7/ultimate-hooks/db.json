@@ -1,0 +1,43 @@
+{
+  "notes": [
+    {
+      "content": "custom-hooks are grat",
+      "id": 1
+    },
+    {
+      "content": "the best featrure ever <3",
+      "id": 2
+    },
+    {
+      "content": "Yaa Customs hooks are super",
+      "id": 3
+    }
+  ],
+  "persons": [
+    {
+      "name": "mluukkai",
+      "number": "040-5483923",
+      "id": 1
+    },
+    {
+      "name": "kaltsoon",
+      "number": "045-2323456",
+      "id": 2
+    },
+    {
+      "name": "Suroz",
+      "number": "040-5483924",
+      "id": 3
+    },
+    {
+      "name": "Suroz suroz",
+      "number": "040-5483925",
+      "id": 4
+    },
+    {
+      "name": "Suroz grz",
+      "number": "040-5483926",
+      "id": 5
+    }
+  ]
+}
